@@ -1,15 +1,16 @@
-import { cn } from "@reactive-resume/utils";
-
-interface IconProps {
+interface LogoProps {
   size?: number;
   className?: string;
 }
 
-export const Icon = ({ size = 24, className }: IconProps) => {
+export const Logo = ({ size = 32, className }: LogoProps) => {
   return (
     <div
-      className={cn("object-contain", className)}
-      style={{ width: size, height: size }}
+      className={className}
+      style={{
+        width: size,
+        height: size,
+      }}
     />
   );
 };
