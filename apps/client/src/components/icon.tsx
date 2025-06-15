@@ -1,15 +1,34 @@
+import { useTheme } from "@reactive-resume/hooks";
 import { cn } from "@reactive-resume/utils";
 
-interface IconProps {
+type Props = {
   size?: number;
   className?: string;
-}
+};
 
-export const Icon = ({ size = 24, className }: IconProps) => {
+export const Icon = ({ size = 32, className }: Props) => {
+  const { isDarkMode } = useTheme();
+
+  let src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
+
+  switch (isDarkMode) {
+    case false: {
+      src = "/icon/dark.svg";
+      break;
+    }
+    case true: {
+      src = "/icon/light.svg";
+      break;
+    }
+  }
+
   return (
-    <div
-      className={cn("object-contain", className)}
-      style={{ width: size, height: size }}
+    <img
+      src={src}
+      width={size}
+      height={size}
+      alt="Reactive Resume"
+      className={cn("rounded-sm", className)}
     />
   );
 };
