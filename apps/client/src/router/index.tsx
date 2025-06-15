@@ -1,4 +1,5 @@
-import { createBrowserRouter, createRoutesFromChildren, Navigate, Route } from "react-router";
+
+import { createBrowserRouter, Navigate, RouteObject } from "react-router";
 
 import { BackupOtpPage } from "../pages/auth/backup-otp/page";
 import { ForgotPasswordPage } from "../pages/auth/forgot-password/page";
@@ -22,71 +23,159 @@ import { AuthGuard } from "./guards/auth";
 import { GuestGuard } from "./guards/guest";
 import { authLoader } from "./loaders/auth";
 
-export const routes = createRoutesFromChildren(
-  <Route element={<Providers />}>
-    <Route errorElement={<ErrorPage />}>
-      <Route element={<HomeLayout />}>
-        <Route path="/" element={<HomePage />} />
-      </Route>
-
-      <Route path="auth">
-        <Route element={<AuthLayout />}>
-          <Route element={<GuestGuard />}>
-            <Route path="login" element={<LoginPage />} />
-            <Route path="register" element={<RegisterPage />} />
-          </Route>
-
-          {/* Password Recovery */}
-          <Route element={<GuestGuard />}>
-            <Route path="forgot-password" element={<ForgotPasswordPage />} />
-            <Route path="reset-password" element={<ResetPasswordPage />} />
-          </Route>
-
-          {/* Two-Factor Authentication */}
-          <Route element={<GuestGuard />}>
-            <Route path="verify-otp" element={<VerifyOtpPage />} />
-            <Route path="backup-otp" element={<BackupOtpPage />} />
-          </Route>
-
-          {/* Email Verification */}
-          <Route element={<AuthGuard />}>
-            <Route path="verify-email" element={<VerifyEmailPage />} />
-          </Route>
-
-          {/* OAuth Callback */}
-          <Route path="callback" loader={authLoader} element={<div />} />
-        </Route>
-
-        <Route index element={<Navigate replace to="/auth/login" />} />
-      </Route>
-
-      <Route path="dashboard">
-        <Route element={<AuthGuard />}>
-          <Route element={<DashboardLayout />}>
-            <Route path="resumes" element={<ResumesPage />} />
-            <Route path="settings" element={<SettingsPage />} />
-
-            <Route index element={<Navigate replace to="/dashboard/resumes" />} />
-          </Route>
-        </Route>
-      </Route>
-
-      <Route path="builder">
-        <Route element={<AuthGuard />}>
-          <Route element={<BuilderLayout />}>
-            <Route path=":id" loader={builderLoader} element={<BuilderPage />} />
-
-            <Route index element={<Navigate replace to="/dashboard/resumes" />} />
-          </Route>
-        </Route>
-      </Route>
-
-      {/* Public Routes */}
-      <Route path=":username">
-        <Route path=":slug" loader={publicLoader} element={<PublicResumePage />} />
-      </Route>
-    </Route>
-  </Route>,
-);
+export const routes: RouteObject[] = [
+  {
+    path: "/",
+    element: <Providers />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/",
+        element: <HomeLayout />,
+        children: [
+          {
+            index: true,
+            element: <HomePage />
+          }
+        ]
+      },
+      {
+        path: "auth",
+        element: <AuthLayout />,
+        children: [
+          {
+            index: true,
+            element: <Navigate replace to="/auth/login" />
+          },
+          {
+            path: "login",
+            element: <GuestGuard />,
+            children: [
+              {
+                index: true,
+                element: <LoginPage />
+              }
+            ]
+          },
+          {
+            path: "register",
+            element: <GuestGuard />,
+            children: [
+              {
+                index: true,
+                element: <RegisterPage />
+              }
+            ]
+          },
+          {
+            path: "forgot-password",
+            element: <GuestGuard />,
+            children: [
+              {
+                index: true,
+                element: <ForgotPasswordPage />
+              }
+            ]
+          },
+          {
+            path: "reset-password",
+            element: <GuestGuard />,
+            children: [
+              {
+                index: true,
+                element: <ResetPasswordPage />
+              }
+            ]
+          },
+          {
+            path: "verify-otp",
+            element: <GuestGuard />,
+            children: [
+              {
+                index: true,
+                element: <VerifyOtpPage />
+              }
+            ]
+          },
+          {
+            path: "backup-otp",
+            element: <GuestGuard />,
+            children: [
+              {
+                index: true,
+                element: <BackupOtpPage />
+              }
+            ]
+          },
+          {
+            path: "verify-email",
+            element: <AuthGuard />,
+            children: [
+              {
+                index: true,
+                element: <VerifyEmailPage />
+              }
+            ]
+          },
+          {
+            path: "callback",
+            loader: authLoader,
+            element: <div />
+          }
+        ]
+      },
+      {
+        path: "dashboard",
+        element: <AuthGuard />,
+        children: [
+          {
+            path: "",
+            element: <DashboardLayout />,
+            children: [
+              {
+                index: true,
+                element: <Navigate replace to="/dashboard/resumes" />
+              },
+              {
+                path: "resumes",
+                element: <ResumesPage />
+              },
+              {
+                path: "settings",
+                element: <SettingsPage />
+              }
+            ]
+          }
+        ]
+      },
+      {
+        path: "builder",
+        element: <AuthGuard />,
+        children: [
+          {
+            path: "",
+            element: <BuilderLayout />,
+            children: [
+              {
+                index: true,
+                element: <Navigate replace to="/dashboard/resumes" />
+              },
+              {
+                path: ":id",
+                loader: builderLoader,
+                element: <BuilderPage />
+              }
+            ]
+          }
+        ]
+      },
+      {
+        path: ":username/:slug",
+        loader: publicLoader,
+        element: <PublicResumePage />
+      }
+    ]
+  }
+];
 
 export const router = createBrowserRouter(routes);

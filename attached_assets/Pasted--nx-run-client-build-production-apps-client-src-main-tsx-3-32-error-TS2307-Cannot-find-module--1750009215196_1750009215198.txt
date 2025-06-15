@@ -1,0 +1,129 @@
+
+> nx run client:build:production
+
+apps/client/src/main.tsx:3:32 - error TS2307: Cannot find module 'react-router-dom' or its corresponding type declarations.
+
+  1 | import { StrictMode } from "react";
+  2 | import { createRoot } from "react-dom/client";
+> 3 | import { RouterProvider } from "react-router-dom";
+    |                                ^
+  4 | 
+  5 | import { router } from "./router";
+  6 | 
+
+apps/client/src/router/index.tsx:2:60 - error TS2307: Cannot find module 'react-router-dom' or its corresponding type declarations.
+
+  1 | 
+> 2 | import { createBrowserRouter, Navigate, RouteObject } from "react-router-dom";
+    |                                                            ^
+  3 | 
+  4 | import { BackupOtpPage } from "../pages/auth/backup-otp/page";
+  5 | import { ForgotPasswordPage } from "../pages/auth/forgot-password/page";
+
+apps/client/src/router/index.tsx:53:16 - error TS2559: Type '{ children: Element; }' has no properties in common with type 'IntrinsicAttributes'.
+
+  51 |             path: "login",
+  52 |             element: (
+> 53 |               <GuestGuard>
+     |                ^
+  54 |                 <LoginPage />
+  55 |               </GuestGuard>
+  56 |             )
+
+apps/client/src/router/index.tsx:61:16 - error TS2559: Type '{ children: Element; }' has no properties in common with type 'IntrinsicAttributes'.
+
+  59 |             path: "register",
+  60 |             element: (
+> 61 |               <GuestGuard>
+     |                ^
+  62 |                 <RegisterPage />
+  63 |               </GuestGuard>
+  64 |             )
+
+apps/client/src/router/index.tsx:69:16 - error TS2559: Type '{ children: Element; }' has no properties in common with type 'IntrinsicAttributes'.
+
+  67 |             path: "forgot-password",
+  68 |             element: (
+> 69 |               <GuestGuard>
+     |                ^
+  70 |                 <ForgotPasswordPage />
+  71 |               </GuestGuard>
+  72 |             )
+
+apps/client/src/router/index.tsx:77:16 - error TS2559: Type '{ children: Element; }' has no properties in common with type 'IntrinsicAttributes'.
+
+  75 |             path: "reset-password",
+  76 |             element: (
+> 77 |               <GuestGuard>
+     |                ^
+  78 |                 <ResetPasswordPage />
+  79 |               </GuestGuard>
+  80 |             )
+
+apps/client/src/router/index.tsx:85:16 - error TS2559: Type '{ children: Element; }' has no properties in common with type 'IntrinsicAttributes'.
+
+  83 |             path: "verify-otp",
+  84 |             element: (
+> 85 |               <GuestGuard>
+     |                ^
+  86 |                 <VerifyOtpPage />
+  87 |               </GuestGuard>
+  88 |             )
+
+apps/client/src/router/index.tsx:93:16 - error TS2559: Type '{ children: Element; }' has no properties in common with type 'IntrinsicAttributes'.
+
+  91 |             path: "backup-otp",
+  92 |             element: (
+> 93 |               <GuestGuard>
+     |                ^
+  94 |                 <BackupOtpPage />
+  95 |               </GuestGuard>
+  96 |             )
+
+apps/client/src/router/index.tsx:101:16 - error TS2559: Type '{ children: Element; }' has no properties in common with type 'IntrinsicAttributes'.
+
+   99 |             path: "verify-email",
+  100 |             element: (
+> 101 |               <AuthGuard>
+      |                ^
+  102 |                 <VerifyEmailPage />
+  103 |               </AuthGuard>
+  104 |             )
+
+apps/client/src/router/index.tsx:116:12 - error TS2559: Type '{ children: Element; }' has no properties in common with type 'IntrinsicAttributes'.
+
+  114 |         path: "dashboard",
+  115 |         element: (
+> 116 |           <AuthGuard>
+      |            ^
+  117 |             <DashboardLayout />
+  118 |           </AuthGuard>
+  119 |         ),
+
+apps/client/src/router/index.tsx:138:12 - error TS2559: Type '{ children: Element; }' has no properties in common with type 'IntrinsicAttributes'.
+
+  136 |         path: "builder",
+  137 |         element: (
+> 138 |           <AuthGuard>
+      |            ^
+  139 |             <BuilderLayout />
+  140 |           </AuthGuard>
+  141 |         ),
+
+Found 11 errors.
+
+ NX   Found type errors. See above.
+
+Pass --verbose to see the stacktrace.
+
+
+——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+ NX   Ran target build for project client and 6 task(s) they depend on (2m)
+
+   ✖  1/7 failed
+   ✔  6/7 succeeded [0 read from cache]
+
+View structured, searchable error logs at https://cloud.nx.app/runs/F4bouvYJ72
+
+ ELIFECYCLE  Command failed with exit code 1.
