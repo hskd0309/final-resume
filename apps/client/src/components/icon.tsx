@@ -7,15 +7,15 @@ interface LogoProps extends React.SVGProps<SVGSVGElement> {
 
 export const Logo = ({ size = 32, className, ...props }: LogoProps) => {
   const { isDarkMode } = useTheme();
-  
+
   return (
-    <img
-      {...props}
+    <div
+      style={{
+        width: size,
+        height: size,
+      }}
       className={cn("object-contain", className)}
-      src={`/logo/${isDarkMode ? "light" : "dark"}.svg`}
-      alt="Reactive Resume Logo"
-      width={size}
-      height={size}
+      {...props}
     />
   );
 };
