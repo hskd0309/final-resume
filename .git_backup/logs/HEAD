@@ -1,0 +1,13 @@
+0000000000000000000000000000000000000000 eed3d0ccb95ea1ae03e4a5e69762472a9b43ac0c hskd0309 <hskd0309@gmail.com> 1750002444 +0000	branch: Created from origin/main
+eed3d0ccb95ea1ae03e4a5e69762472a9b43ac0c eed3d0ccb95ea1ae03e4a5e69762472a9b43ac0c hskd0309 <hskd0309@gmail.com> 1750002444 +0000	checkout: moving from main to main
+eed3d0ccb95ea1ae03e4a5e69762472a9b43ac0c 6cfb91adbe1788a70ef3fea9a7ca76d63ef62f66 replituse6 <43875109-replituse6@users.noreply.replit.com> 1750002644 +0000	commit: Checkpoint before assistant change: Configure the application to run smoothly on the Render deployment platform
+6cfb91adbe1788a70ef3fea9a7ca76d63ef62f66 1ee7ffe61c573d140fe5272db1fb8459962dd42c hskd0309 <hskd0309@gmail.com> 1750002682 +0000	commit: Assistant checkpoint: Combined frontend and backend for single deployment
+1ee7ffe61c573d140fe5272db1fb8459962dd42c 86f28035a436b558a04e71c894e3a589c0848083 hskd0309 <hskd0309@gmail.com> 1750002878 +0000	commit: Assistant checkpoint: Combined frontend and backend into single app
+86f28035a436b558a04e71c894e3a589c0848083 fe0ebdfe267a531fcf4635cc47fee251071e772b hskd0309 <hskd0309@gmail.com> 1750003003 +0000	commit: Assistant checkpoint: Fixed navigation routing and server configuration
+fe0ebdfe267a531fcf4635cc47fee251071e772b 1bf4d81806db2f4fa51f8fcde17f412d58f21974 hskd0309 <hskd0309@gmail.com> 1750003140 +0000	commit: Assistant checkpoint: Fix all routing, server, and deployment issues
+1bf4d81806db2f4fa51f8fcde17f412d58f21974 7f59e7011639971e3c557648c39102ff13d724c6 replituse6 <43875109-replituse6@users.noreply.replit.com> 1750003189 +0000	commit: Checkpoint before assistant change: Ensure website runs correctly in production without specific port configuration
+7f59e7011639971e3c557648c39102ff13d724c6 b75fcbb80007866ee905d1a3de2565b9f8295772 hskd0309 <hskd0309@gmail.com> 1750003340 +0000	commit: Assistant checkpoint: Fixed router, server routing, build process, and deployment
+b75fcbb80007866ee905d1a3de2565b9f8295772 b342d80bef4a35754ef1d6a311ce5964bfc97cf5 hskd0309 <hskd0309@gmail.com> 1750003659 +0000	commit: Assistant checkpoint
+b342d80bef4a35754ef1d6a311ce5964bfc97cf5 3fbad15dac1df1f36778034cf16131153e09ed94 Dhinesh Kumar <Dhinesh@LKs-Mac-mini.local> 1750003994 +0530	commit: Customize resume builder UI and logo
+3fbad15dac1df1f36778034cf16131153e09ed94 0000000000000000000000000000000000000000 Dhinesh Kumar <Dhinesh@LKs-Mac-mini.local> 1750004003 +0530	Branch: renamed refs/heads/main to refs/heads/main
+3fbad15dac1df1f36778034cf16131153e09ed94 3fbad15dac1df1f36778034cf16131153e09ed94 Dhinesh Kumar <Dhinesh@LKs-Mac-mini.local> 1750004003 +0530	Branch: renamed refs/heads/main to refs/heads/main

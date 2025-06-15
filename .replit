@@ -1,0 +1,53 @@
+modules = ["nodejs-20", "web"]
+run = "npm run dev"
+
+[nix]
+channel = "stable-24_05"
+
+[deployment]
+run = ["sh", "-c", "PORT=5000 pnpm run start:production"]
+build = ["sh", "-c", "pnpm install && pnpm run build:production"]
+
+[workflows]
+runButton = "Production Build & Deploy"
+
+[[workflows.workflow]]
+name = "Production Build & Deploy"
+author = 43875109
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "pnpm install --frozen-lockfile"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "pnpm nx reset"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "pnpm run build:production"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "echo \"✅ Build completed successfully\""
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "echo \"📂 Checking build output...\""
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "ls -la dist/apps/"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "ls -la dist/apps/server/client/ 2>/dev/null || echo \"Client files not found in server directory\""
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "echo \"🚀 Starting production server...\""
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "PORT=5000 pnpm run start:production"

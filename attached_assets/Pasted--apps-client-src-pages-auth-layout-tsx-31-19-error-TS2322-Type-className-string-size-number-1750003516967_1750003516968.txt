@@ -1,0 +1,84 @@
+
+apps/client/src/pages/auth/layout.tsx:31:19 - error TS2322: Type '{ className: string; size: number; }' is not assignable to type 'IntrinsicAttributes'.
+  Property 'className' does not exist on type 'IntrinsicAttributes'.
+
+  29 |         <div className="flex items-center justify-between">
+  30 |           <Link to="/" className="size-24">
+> 31 |             <Logo className="-ml-3" size={96} />
+     |                   ^
+  32 |           </Link>
+  33 | 
+  34 |           <div className="right-0 space-x-2 text-right lg:absolute lg:p-12 lg:text-center">
+
+apps/client/src/pages/builder/sidebars/left/index.tsx:48:19 - error TS2322: Type '{ size: number; }' is not assignable to type 'IntrinsicAttributes'.
+  Property 'size' does not exist on type 'IntrinsicAttributes'.
+
+  46 |         <Button asChild size="icon" variant="ghost" className="size-8 rounded-full">
+  47 |           <Link to="/dashboard">
+> 48 |             <Icon size={14} />
+     |                   ^
+  49 |           </Link>
+  50 |         </Button>
+  51 | 
+
+apps/client/src/pages/dashboard/_components/sidebar.tsx:103:19 - error TS2322: Type '{ size: number; className: string; }' is not assignable to type 'IntrinsicAttributes'.
+  Property 'size' does not exist on type 'IntrinsicAttributes'.
+
+  101 |         <Button asChild size="icon" variant="ghost" className="size-10 p-0">
+  102 |           <Link to="/">
+> 103 |             <Icon size={24} className="mx-auto hidden lg:block" />
+      |                   ^
+  104 |           </Link>
+  105 |         </Button>
+  106 |       </div>
+
+apps/client/src/pages/home/components/footer.tsx:16:15 - error TS2322: Type '{ size: number; className: string; }' is not assignable to type 'IntrinsicAttributes'.
+  Property 'size' does not exist on type 'IntrinsicAttributes'.
+
+  14 |     <div className="container grid py-12 sm:grid-cols-3 lg:grid-cols-4">
+  15 |       <div className="flex flex-col gap-y-2">
+> 16 |         <Logo size={96} className="-ml-2" />
+     |               ^
+  17 | 
+  18 |         <h2 className="text-xl font-medium">{t`Reactive Resume`}</h2>
+  19 | 
+
+apps/client/src/pages/home/components/header.tsx:19:17 - error TS2322: Type '{ size: number; }' is not assignable to type 'IntrinsicAttributes'.
+  Property 'size' does not exist on type 'IntrinsicAttributes'.
+
+  17 |       <div className="container flex items-center justify-between">
+  18 |         <Link to="/">
+> 19 |           <Logo size={48} />
+     |                 ^
+  20 |         </Link>
+  21 | 
+  22 |         <div />
+
+apps/client/src/pages/public/page.tsx:94:19 - error TS2322: Type '{ size: number; }' is not assignable to type 'IntrinsicAttributes'.
+  Property 'size' does not exist on type 'IntrinsicAttributes'.
+
+  92 |           <Button size="sm" variant="ghost" className="space-x-1.5 text-xs font-normal">
+  93 |             <span>{t`Built with`}</span>
+> 94 |             <Icon size={12} />
+     |                   ^
+  95 |             <span>{t`Reactive Resume`}</span>
+  96 |           </Button>
+  97 |         </Link>
+
+Found 6 errors.
+
+ NX   Found type errors. See above.
+
+Pass --verbose to see the stacktrace.
+
+
+————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+ NX   Ran target build for project client and 6 task(s) they depend on (26s)
+
+   ✖  1/7 failed
+   ✔  6/7 succeeded [6 read from cache]
+
+View structured, searchable error logs at https://cloud.nx.app/runs/WSx7CptNI8
+
+ ELIFECYCLE  Command failed with exit code 1.
